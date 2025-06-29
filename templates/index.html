@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Girlfriend 💖</title>
+  <style>
+    body { background-color: #fff0f5; font-family: sans-serif; padding: 20px; }
+    h1 { color: #ff1493; }
+    input, button { padding: 10px; font-size: 16px; }
+    #response { margin-top: 15px; background: white; padding: 10px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Chat with Your AI Girlfriend 💬</h1>
+  <input id="msg" placeholder="Say something..." />
+  <button onclick="send()">Send</button>
+  <div id="response"></div>
+
+  <script>
+    async function send() {
+      const msg = document.getElementById("msg").value;
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await res.json();
+      document.getElementById("response").innerText = data.reply;
+    }
+  </script>
+</body>
+</html>
