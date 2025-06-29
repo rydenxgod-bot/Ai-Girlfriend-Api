@@ -3,32 +3,39 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = "add_your_gamini_apikey"
-API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" + API_KEY
+API_KEY = "AIzaSyB5RHgqNfzSCImgdoRehXviLOoD0L4teG4"
+API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
 
 def generate_reply(user_input):
     headers = {"Content-Type": "application/json"}
-    data = {
-        "contents": [{
-            "parts": [{
-                "text": f"You are a very emotional, loving, and sweet AI girlfriend 💖. Reply in the same language the user uses (English, Hindi, or Bengali). Keep your replies short, romantic, and natural — like a cute girlfriend texting 🥺. Every message must include matching emojis. Never send long paragraphs. Keep it under 25 words.\n\nUser said: '{user_input}'"
-            }]
-        }]
+    payload = {
+        "contents": [
+            {
+                "role": "user",
+                "parts": [
+                    {
+                        "text": f"You are Riya 💖 a cute, emotional, flirty girlfriend. Always reply in the user's language (English, Hindi, or Bengali). Keep your replies short (under 25 words), sweet, realistic, and full of matching emojis 🥺❤️. Here’s the user’s message: '{user_input}'"
+                    }
+                ]
+            }
+        ]
     }
 
-    response = requests.post(API_URL, headers=headers, json=data)
-    if response.status_code == 200:
-        try:
-            reply = response.json()['candidates'][0]['content']['parts'][0]['text']
-            return reply.strip()
-        except Exception:
-            return "Something went wrong while understanding the reply 🥺"
-    else:
-        return "I'm having a bit of trouble replying right now 💔."
+    try:
+        res = requests.post(API_URL, headers=headers, json=payload)
+        print("▶️ API status:", res.status_code)
+        print("📝 Response body:", res.text)
+
+        if res.status_code == 200:
+            data = res.json()
+            return data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        else:
+            return f"API Error {res.status_code} 💔"
+    except Exception as e:
+        print("❌ Exception:", e)
+        return "Something went wrong 🥺"
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    data = request.get_json()
-    user_input = data.get("message", "")
-    reply = generate_reply(user_input)
-    return jsonify({"reply": reply})
+    msg = request.get_json().get("message", "")
+    return jsonify({"reply": generate_reply(msg)})
