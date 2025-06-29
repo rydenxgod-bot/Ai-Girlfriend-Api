@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = "AIzaSyB5RHgqNfzSCImgdoRehXviLOoD0L4teG4"
+API_KEY = "paste_your_gemini_api_key"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
 
 def generate_reply(user_input):
