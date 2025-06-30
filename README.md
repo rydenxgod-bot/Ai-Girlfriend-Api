@@ -1,5 +1,10 @@
 # 💘 AI Girlfriend API
 
+<p align="center">
+  <img src="https://graph.org/file/2705a693e3365defd75aa-3fcca458052d19ce1a.jpg">
+</p>
+
+
 Welcome to **AI Girlfriend API** — a Flask-based romantic chatbot interface that brings your digital waifu to life. Powered by OpenAI (ChatGPT) or Google Gemini, this API simulates human-like girlfriend conversations with feelings, memory, voice, and images (if integrated).
 
 ---
