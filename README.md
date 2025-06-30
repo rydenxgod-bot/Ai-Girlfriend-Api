@@ -8,6 +8,8 @@ Welcome to **AI Girlfriend API** — a Flask-based romantic chatbot interface th
 
 - 💬 Real-time Chat (via API)
 - 🧠 AI-powered Responses (Gemini or ChatGPT)
+## 🥀 Upcoming feature
+
 - 🖼️ Optional Image Generation (DALL·E, Craiyon, Replicate)
 - 🔊 Optional Voice Mode (pyttsx3, Google TTS, etc.)
 - 💞 Acts like a Real Human Girlfriend (emotion logic, roleplay tone)
