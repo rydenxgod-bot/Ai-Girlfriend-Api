@@ -60,11 +60,11 @@ python main.py
 
 ---
 
-## 🔐 Environment Variables (Setup `.env` file)
+## 🔐 Environment Variables (api/index.py)
 
 ```
-MODEL=gemini | chatgpt
-API_KEY=your_api_key_here
+api/index.py
+line 6 add your own gemini api key
 ```
 
 ---
