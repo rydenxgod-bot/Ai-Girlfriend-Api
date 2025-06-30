@@ -32,7 +32,6 @@ Here are the best **FREE hosting platforms** to deploy your Flask API:
 ```bash
 git clone https://github.com/DominatorStufs/Ai-Girlfriend-Api
 cd Ai-Girlfriend-Api
-pip install -r requirements.txt
 python main.py
 ```
 
