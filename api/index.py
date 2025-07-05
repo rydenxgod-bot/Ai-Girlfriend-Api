@@ -6,7 +6,7 @@ import pytz
 app = Flask(__name__)
 
 # 🔐 Replace with your actual Gemini API Key
-API_KEY = "paste_your_own_api"
+API_KEY = "AIzaSyAlGiq1wp-_Ab9BkOSWT2yI6IE5d_cHe5E"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
 TTS_API = "https://ryden-voice-api.onrender.com/tts"
 
